@@ -12,6 +12,7 @@ export class HeroFormComponent{
 		'Really Smart', 'Super Flexible',
 		'Super hot', 'Weather changer'
 	];
+	active: boolean = true;
 
 	model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
 	submitted = false;
@@ -21,4 +22,10 @@ export class HeroFormComponent{
 	}
 
 	get diagnostic() { return JSON.stringify(this.model);}
+
+	newHero(){
+		this.model = new Hero(42, '', '');
+		this.active = false;
+		setTimeout(() => this.active = true, 0);
+	}
 }
